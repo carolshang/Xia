@@ -1,10 +1,10 @@
 package processer;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MessyData {
-	//delete the useless field
-	public void DeleteUselessField() {
-		
-	}
+	
 	//fill the data which field of the record is null
 	public void FillBank() {
 		
@@ -14,8 +14,9 @@ public class MessyData {
 		
 	}
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
 
 	}
+	
 
 }
