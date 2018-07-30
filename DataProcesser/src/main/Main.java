@@ -21,6 +21,10 @@ public class Main {
 		
 		ProcessMain pm = new ProcessMain();
 		defectList = pm.processDataSuit(defectList);
+		
+		//write into mysql
+		
+		
 		//processed data and write into txt file
 		WriteDataIntoFile wdif = new WriteDataIntoFile();
 		wdif.WriteProcessedIntoTXT(defectList);
