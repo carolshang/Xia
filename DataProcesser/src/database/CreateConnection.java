@@ -12,7 +12,7 @@ public class CreateConnection {
 	final static String DB_USER = "root";
 	final static String DB_PASSWORD = "7u8i9o0p";
 	
-	public static Connection createConnection() {
+	public Connection createConnection() {
 		Connection conn = null;
 		try {
 			Class.forName(JDBC_DRIVER);
@@ -28,23 +28,10 @@ public class CreateConnection {
 	}
 	
 	public static void main(String[] args) {
-		Connection conn = null;
+		/*Connection conn = null;
 		try {
 			conn = createConnection();
-			System.out.println(conn);
-			
-	//		stmt = conn.createStatement();
-			
-			/*while(rs.next()) {
-
-                // Êä³öÊý¾Ý
-                System.out.print("DefectId: " + rs.getString("DefectID"));
-                System.out.print(", Component: " + rs.getString("Component"));
-                System.out.print("\n");
-			}
-			rs.close();*/
-
-			
+			System.out.println(conn);	
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -55,9 +42,7 @@ public class CreateConnection {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-		}
-		
-
+		}*/
 	}
 
 }

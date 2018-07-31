@@ -3,9 +3,12 @@ package main;
 import java.io.File;
 import java.sql.Connection;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
+import abstractProcess.RemoveStopWords;
 import database.CreateConnection;
+import database.UpdateDataBase;
 import database.WriteIntoDataBase;
 import fileRW.ReadNecessaryFromExcel;
 import processer.ProcessMain;
@@ -23,10 +26,16 @@ public class DataBaseMain {
 			defectList = pm.processDataSuit(defectList);
 			
 			//write into mysql
-			Connection conn = CreateConnection.createConnection();
+			CreateConnection cc = new CreateConnection();
+			Connection conn = cc.createConnection();
 			WriteIntoDataBase writeIn = new WriteIntoDataBase();
 			writeIn.Insert(defectList, conn);
-
+			
+			//remove stop words of abstract, then update abstract into database
+			RemoveStopWords rsw = new RemoveStopWords();
+			UpdateDataBase udb = new UpdateDataBase();
+			HashMap<String,String> abstractMap = rsw.removeWords();
+			udb.updateAbstractsWithoutSW(abstractMap);
 	}
 
 }
