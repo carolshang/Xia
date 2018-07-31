@@ -51,6 +51,7 @@ public class WriteIntoDataBase {
 				if(conn != null) {
 					conn.close();
 				}
+				System.out.println("Write defects information into table defect is finished.");
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

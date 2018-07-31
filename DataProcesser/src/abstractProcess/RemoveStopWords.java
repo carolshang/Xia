@@ -24,6 +24,7 @@ public class RemoveStopWords {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		System.out.println("Get stop words............");
 		return stopwordsList;
 	}
 	public String[] replaceWords(String abstr[],List<String> stopwordsList) {
@@ -59,10 +60,10 @@ public class RemoveStopWords {
 					}
 				}
 			}
-			System.out.println(abstrSimple);
+			//System.out.println(abstrSimple);
 			abstractMap.put(getKey, abstrSimple);
-			
 		}
+		System.out.println("Remove stop words............");
 		//System.out.println(count);
 		return abstractMap;
 	}

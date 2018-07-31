@@ -1,0 +1,15 @@
+Tooling:
+	widget,table,text,Label,Checkbox,CheckedMultiSelect,Checkbox,Webmessage,tabedpane,Mutil-Select,EnhancedMultiSelect,tree,button,tabbepane,ContentPane,
+	Image,richtext,combo,textarea,Radio,link,Date,optionPanel,conditionPane,Chat2D,generate,template,ECA,event,Action,Condition,Expression,GlobalFunction,
+	xui,Layout,attribute,Properties
+
+Runtime-front:
+	unavailable,nls,NLS,css,validation,JS,Double click,visible,keyboard,focus,attribute,ContextMenu,Popup,AJAX,navigation,isMandatory,DOJO,width,height,
+	JSP,client,Firefox,chrome,safari,IE,color,style,Html,autosize
+
+Runtime-server:
+	ConditionState,mapping,session,pagination,transaction,exception,Error,data bind,Operation,op,Flow,condition transaction,global function,KColl,dataName,
+	
+	
+Configuration:btt.xml,build,Build,
+Others:

@@ -37,6 +37,7 @@ public class QueryData {
 				if(conn != null) {
 					conn.close();
 				}
+				System.out.println("select * from defect is finished.");
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

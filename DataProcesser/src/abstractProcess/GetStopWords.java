@@ -49,6 +49,7 @@ public class GetStopWords {
 				if(conn != null) {
 					conn.close();
 				}
+				System.out.println("Count words in abstracts is over.");
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -71,9 +72,7 @@ public class GetStopWords {
 	        for(String getkey:hm.keySet()) {
 	        	if(hm.get(getkey) > 30) {
 	        		bw.write(getkey+"---"+hm.get(getkey)+"\n");
-	        		//System.out.print(getkey+":"+hm.get(getkey));
 	        		bw.flush();
-	        	
 	        	}
 	        }
 		} catch (IOException e) {
@@ -81,13 +80,37 @@ public class GetStopWords {
 		}
         System.out.println("Write into AbstractWordsCount.txt is finished.");
 	}
+	
+	public void writeIntoKeyWordsFile(HashMap<String,Integer> hm) {
 
-	/*public static void main(String[] args) {
+		//write into txt file
+		File newfile = new File("./files/AbstractKeyWordsCount.txt");
+		FileWriter fw = null;
+		try {
+			fw = new FileWriter(newfile);
+			BufferedWriter bw = new BufferedWriter(fw);
+	        System.out.println("Output words count less than 30........");
+	        for(String getkey:hm.keySet()) {
+	        	if(hm.get(getkey) <= 30) {
+	        		bw.write(getkey+"---"+hm.get(getkey)+"\n");
+	        		bw.flush();
+	        	}
+	        }
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+        System.out.println("Write into AbstractKeyWordsCount.txt is finished.");
+	}
+
+	public static void main(String[] args) {
 		HashMap<String,Integer> hm = new HashMap<String,Integer>();
 		CreateConnection cc = new CreateConnection();
 		Connection conn = cc.createConnection();
-		hm = SearchAllAbstract(conn);
-		writeIntoStopWordsFile(hm);
-	}*/
+		
+		GetStopWords gsw = new GetStopWords();
+		hm = gsw.SearchAllAbstract(conn);
+		//gsw.writeIntoStopWordsFile(hm);
+		gsw.writeIntoKeyWordsFile(hm);
+	}
 
 }

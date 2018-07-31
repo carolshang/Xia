@@ -27,22 +27,7 @@ public class CreateConnection {
 		return conn;
 	}
 	
-	public static void main(String[] args) {
-		/*Connection conn = null;
-		try {
-			conn = createConnection();
-			System.out.println(conn);	
-		} catch (Exception e) {
-			e.printStackTrace();
-		}finally {
-			try {
-				if(conn != null) {
-					conn.close();
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}*/
-	}
+/*	public static void main(String[] args) {
+	}*/
 
 }
