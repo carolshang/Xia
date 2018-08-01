@@ -1,9 +1,17 @@
-FunctionTest:X003,X028,BN009,G016-UC9,tooltip,ContextMenu,FVT,Tool,Tools
-BrowserTest:IE
-SystemTest:SVT,REG:,Reg:,cacheLow,CCB,[REG],[reg],[Reg],[Reg,[REG,[reg,[SVT],ICBC,REG:,reg:,Sample,WorkShop,
+FunctionTest:X003,X028,BN009,G016-UC9,tooltip,ContextMenu,FVT,Tool,Tools,IBK4-12,DataGrid,F013,Tools,mapping,Future,I7-R3,DataField,X038,G019,G016,
+
+
+
+BrowserTest:IE,Firefox,firefox,chrome,Chrome,Safari,safari
+
+SystemTest:SVT,REG:,Reg:,cacheLow,CCB,[REG],[reg],[Reg],[Reg,[REG,[reg,[SVT],ICBC,REG:,reg:,Sample,WorkShop,Html,HTTP
+
 PerformanceTest:[per,[P],[perf],[Per,[P-Map],INS,PERF:,Performance,
+
 AutomationTest:[sandbox],[TestSuit],[Test Suit],Aut,auto,Automation,BTTAUTO,BTTAutomation
+
 MobileTest:mobile,Mobile,
+
 UnitTest:code,DEV,E2E,Dev:,Code,compile,Compile,synchronize,Synchronization,
+
 DevelopTransaction:roll back code,
-Others:build,copyright,javadoc,JavaDoc,Migrate,BUILD,Build,Javadocs,Javadoc,Migrate,Migration,test,Test,z/OS
