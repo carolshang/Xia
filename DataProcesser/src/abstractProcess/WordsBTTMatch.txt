@@ -1,15 +1,15 @@
 Tooling:
 	widget,table,text,Label,Checkbox,CheckedMultiSelect,Checkbox,Webmessage,tabedpane,Mutil-Select,EnhancedMultiSelect,tree,button,tabbepane,ContentPane,
 	Image,richtext,combo,textarea,Radio,link,Date,optionPanel,conditionPane,Chat2D,generate,template,ECA,event,Action,Condition,Expression,GlobalFunction,
-	xui,Layout,attribute,Properties,horizontalslider,
-
+	xui,Layout,attribute,Properties,horizontalslider,align,Form,clientstate,hiddenwidget,generated,panel,subflow,editor,property,tooling,widgets,tabbedpane,
+	container,drag,component,generation,
 Runtime-front:
 	unavailable,nls,NLS,css,validation,JS,Double click,visible,keyboard,focus,attribute,ContextMenu,Popup,AJAX,navigation,isMandatory,DOJO,width,height,
-	JSP,client,Firefox,chrome,safari,IE,color,style,Html,autosize
+	JSP,jsp,client,Firefox,chrome,safari,IE,color,style,Html,autosize,multi-header,validate,Html,html,dbclick,invalid,UI,window,
 
 Runtime-server:
-	ConditionState,mapping,session,pagination,transaction,exception,Error,data bind,Operation,op,Flow,condition transaction,global function,KColl,dataName,\
-	DataField,DEV,
+	ConditionState,mapping,session,pagination,exception,Error,data bind,Operation,op,Flow,condition transaction,global function,KColl,dataName,
+	DataField,DEV,multi-selection,remoteRequestHandler,Cache,cache,submit,context,Format,
 	
 	
 Configuration:btt.xml,build,Build,META-INF,

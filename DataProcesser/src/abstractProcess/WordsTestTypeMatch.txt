@@ -1,10 +1,13 @@
-FunctionTest:X003,X028,BN009,G016-UC9,tooltip,ContextMenu,FVT,Tool,Tools,IBK4-12,DataGrid,F013,Tools,mapping,Future,I7-R3,DataField,X038,G019,G016,
+FunctionTest:X003,X028,BN009,G016-UC9,tooltip,ContextMenu,FVT,Tool,Tools,IBK4-12,DataGrid,F013,Tools,mapping,Future,I7-R3,DataField,X038,G019,G016,G003,G021,Form,
+	TabbedPane,B001,G028,properties,multi-selection,dbclick,remoteRequestHandler,X037,clientstate,mutichannel,G026,hiddenwidget,css,invalid,expression,exception,
+	generated,UI,widget,ECA,panel,context,subflow,BTT61FVT,editor,FVTI2,FVTI3,FVTI1,FVTI4,property,style,tooling,widgets,condition,height,attribute,container,width,
+	image,transaction,NLS,Operation,component,validate,validation,
 
 
+BrowserTest:IE,Firefox,firefox,chrome,Chrome,Safari,safari,Html,html,ajax,IE8,dojo,
 
-BrowserTest:IE,Firefox,firefox,chrome,Chrome,Safari,safari
-
-SystemTest:SVT,REG:,Reg:,cacheLow,CCB,[REG],[reg],[Reg],[Reg,[REG,[reg,[SVT],ICBC,REG:,reg:,Sample,WorkShop,Html,HTTP
+SystemTest:SVT,REG:,Reg:,cacheLow,CCB,[REG],[reg],[Reg],[Reg,[REG,[reg,[SVT],ICBC,REG:,reg:,Sample,WorkShop,HTTP,Webproject,submit,window,dataName,runtime,Format,
+	jsp,launch,BTT51SVT,8105,generation,
 
 PerformanceTest:[per,[P],[perf],[Per,[P-Map],INS,PERF:,Performance,
 
