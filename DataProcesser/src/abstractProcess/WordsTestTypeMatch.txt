@@ -1,17 +1,41 @@
-FunctionTest:X003,X028,BN009,G016-UC9,tooltip,ContextMenu,FVT,Tool,Tools,IBK4-12,DataGrid,F013,Tools,mapping,Future,I7-R3,DataField,X038,G019,G016,
+FunctionTest:X003,X028,BN009,G016-UC9,tooltip,ContextMenu,FVT,Tool,Tools,IBK4-12,DataGrid,F013,Tools,mapping,Future,I7-R3,DataField,X038,G019,G016,G003,G021,Form,
+	TabbedPane,B001,G028,properties,multi-selection,dbclick,remoteRequestHandler,X037,clientstate,mutichannel,G026,hiddenwidget,css,invalid,expression,exception,
+	generated,UI,widget,ECA,panel,context,subflow,BTT61FVT,editor,FVTI2,FVTI3,FVTI1,FVTI4,property,style,tooling,widgets,condition,height,attribute,container,width,
+	image,transaction,NLS,Operation,component,validate,validation,group,tree,popup,
+***************************************	
+	flow,css,exception,generated,UI,button,window,widget,ECA,panel,form,context,js,op,subflow,BTT61FVT:,runtime,dataName,FVTI2:,FVTI3:,FVTI1:,FVTI4:,property,tooling,
+	Action,widgets,condition,dojo,tabbedpane,bind,height,mapping,attribute,nls,width,image,transaction,NLS,link,Operation,validate,validation,operation,generation,
+	table,tab,Exception,checkbox,format,properties,layout,alignment,Table,BTT52FVT:,xui,action,XUI,BTT61FVT,Context,refData,BTT51Tool:,tool,tooltip,date,
+	dataname,processor,label,BTT51FVT,pagination,thrown,throws,generate,HTML,
+	
+	
 
+BrowserTest:IE,Firefox,firefox,chrome,Chrome,Safari,safari,Html,html,ajax,IE8,dojo,
 
+	IE,IE8,jsp,JSP,web,
 
-BrowserTest:IE,Firefox,firefox,chrome,Chrome,Safari,safari
+SystemTest:SVT,REG:,Reg:,cacheLow,CCB,[REG],[reg],[Reg],[Reg,[REG,[reg,[SVT],ICBC,REG:,reg:,Sample,WorkShop,HTTP,Webproject,submit,window,dataName,runtime,Format,
+	jsp,launch,BTT51SVT,8105,generation,
+***************************************		
+	SVT:,SVT,BP,window,widget,ECA,EJB,panel,form,context,js,op,subflow,runtime,dataName,property,Format,jar,tooling,launch,Action,BTT51SVT:,widgets,condition,dojo,
+	tabbedpane,bind,height,mapping,attribute,nls,plugin,width,ICBC:,image,transaction,NLS,link,Operation,[reg],ajax,validate,ICBC,validation,operation,generation,
+	sample,table,tab,Exception,checkbox,SVT,format,properties,layout,was,dialog,WAS,Table,channel,xui,action,XUI,Context,refData,client,server,tooltip,tool,date,
+	dataname,processor,Sample,group,tree,transition,session,popup,label,pagination,timeout,thrown,throws,generate,HTML,
+	
 
-SystemTest:SVT,REG:,Reg:,cacheLow,CCB,[REG],[reg],[Reg],[Reg,[REG,[reg,[SVT],ICBC,REG:,reg:,Sample,WorkShop,Html,HTTP
+PerformanceTest:[per,[P],[perf],[Per,[P-Map],INS,PERF:,Performance,alignment,
+***************************************	
 
-PerformanceTest:[per,[P],[perf],[Per,[P-Map],INS,PERF:,Performance,
-
+	performance,Exception,
+	
 AutomationTest:[sandbox],[TestSuit],[Test Suit],Aut,auto,Automation,BTTAUTO,BTTAutomation
+***************************************	
+		automation,Exception,auto,
 
 MobileTest:mobile,Mobile,
 
 UnitTest:code,DEV,E2E,Dev:,Code,compile,Compile,synchronize,Synchronization,
+***************************************	
+	BTT611DEV:,java,code,invoker,compile,classpath,DEV:,BTT61DEV:,
 
 DevelopTransaction:roll back code,
