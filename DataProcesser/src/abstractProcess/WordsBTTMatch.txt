@@ -1,27 +1,22 @@
 Tooling:
-	widget,table,text,Label,Checkbox,CheckedMultiSelect,Checkbox,Webmessage,tabedpane,Mutil-Select,EnhancedMultiSelect,tree,button,tabbepane,ContentPane,
-	Image,richtext,combo,textarea,Radio,link,Date,optionPanel,conditionPane,Chat2D,generate,template,ECA,event,Action,Condition,Expression,GlobalFunction,
-	xui,Layout,attribute,Properties,horizontalslider,align,Form,clientstate,hiddenwidget,generated,panel,editor,property,tooling,widgets,tabbedpane,
-	container,drag,component,generation,operation,generation,table,properties,Table,Context,refData,
-	
-	***************************************	
-	generated,button,widget,ECA,panel,form,op,property,tooling,Action,widgets,condition,tabbedpane,attribute,plugin,image,link,Operation,validate,validation,
-	tab,checkbox,layout,alignment,xui,action,XUI,BTT51Tool:,tool,tooltip,group,tree,Editor,label,template,generate,
+
+	generated,button,widget,ECA,panel,form,op,property,tooling,widgets,condition,tabbedpane,attribute,plugin,image,link,Operation,validate,validation,
+	tab,checkbox,layout,alignment,xui,action,BTT51Tool:,tool,tooltip,group,tree,Editor,label,template,generate,tabedpane,tabbepane,Mutil-Select,align,
+	GlobalFunction,generation,width,height,color,autosize,
 	
 Runtime-front:
-	unavailable,nls,NLS,css,validation,JS,Double click,visible,keyboard,focus,attribute,ContextMenu,Popup,AJAX,navigation,isMandatory,DOJO,width,height,
-	JSP,jsp,client,Firefox,chrome,safari,IE,color,style,Html,autosize,multi-header,validate,Html,html,dbclick,invalid,UI,window,
-	***************************************	
-	css,IE,UI,window,ECA,js,runtime,property,IE8,jsp,JSP,dojo,height,attribute,nls,width,image,NLS,link,ajax,validate,validation,table,tab,checkbox,properties,layout,
-	alignment,web,dialog,Table,xui,action,XUI,client,tooltip,date,group,tree,popup,label,pagination,HTML,
+
+	css,UI,window,ECA,js,runtime,property,jsp,dojo,attribute,nls,width,height,image,link,ajax,validate,validation,table,tab,checkbox,layout,
+	alignment,web,dialog,xui,action,client,tooltip,date,group,tree,popup,label,pagination,html,ContentPane,richtext,combo,textarea,GlobalFunctions,visible,
+	keyboard,firefox,chrome,safari,IE,IE8,multi-header,
 	
 
 Runtime-server:
-	ConditionState,mapping,session,pagination,exception,Error,data bind,Operation,op,condition transaction,global function,KColl,dataName,
-	DataField,DEV,multi-selection,remoteRequestHandler,Cache,cache,submit,context,Format,
+	ConditionState,mapping,session,pagination,exception,Error,data bind,op,global function,KColl,dataName,
+	DataField,DEV,multi-selection,remoteRequestHandler,Cache,cache,submit,Format,
 	***************************************	
-	Flow,subflow,SVT,exception,SVT:,BTT611DEV:,EJB,context,op,subflow,BTT61FVT:,runtime,dataName,FVTI2:,FVTI3:,FVTI1:,FVTI4:,Format,jar,launch,Action,BTT51SVT:,
-	condition,bind,mapping,java,ICBC:,transaction,code,link,Operation,validate,validation,operation,invoker,Exception,format,was,WAS,Table,channel,Context,refData,
+	Flow,subflow,SVT,exception,SVT:,BTT611DEV:,EJB,context,op,subflow,BTT61FVT:,runtime,dataName,FVTI2:,FVTI3:,FVTI1:,FVTI4:,Format,jar,launch,action,BTT51SVT:,
+	condition,bind,mapping,java,ICBC:,transaction,code,link,validate,validation,operation,invoker,Exception,format,was,WAS,table,channel,refData,
 	compile,server,date,dataname,processor,transition,session,trace,pagination,timeout,thrown,throws,
 	
 	
