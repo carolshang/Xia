@@ -34,7 +34,7 @@ public class DataBaseMain {
 			//remove stop words of abstract, then update abstract into database
 			RemoveStopWords rsw = new RemoveStopWords();
 			UpdateDataBase udb = new UpdateDataBase();
-			HashMap<String,String> abstractMap = rsw.removeWords();
+			HashMap<String,String> abstractMap = rsw.removeWords(); //5.297s
 			udb.updateAbstractsWithoutSW(abstractMap);
 	}
 
