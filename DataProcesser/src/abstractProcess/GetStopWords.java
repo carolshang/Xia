@@ -91,7 +91,7 @@ public class GetStopWords {
 			BufferedWriter bw = new BufferedWriter(fw);
 	        System.out.println("Output words count less than 30........");
 	        for(String getkey:hm.keySet()) {
-	        	if(hm.get(getkey) <= 30 && hm.get(getkey) >= 4) {
+	        	if(hm.get(getkey) <= 30 && hm.get(getkey) >= 15) {
 	        		bw.write(getkey+"---"+hm.get(getkey)+"\n");
 	        		bw.flush();
 	        	}
