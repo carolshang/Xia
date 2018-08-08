@@ -102,6 +102,16 @@ public class KModes {
 		
 		
 
+		
+		
+		
+		//1 random k central point , add into central list
+		//2 get dataset, count the attribute match, if match count >= 3, the record will mark as the k cluster
+		//3 add the dataset group by cluster into a map or set or list
+		//4 count the data in map(set/list), according to the frequent to get new central points
+		//5 clustering all initial data with new central points,  until the clusters doesn't change,count the number of data which cluster changed
+		//  if the changed data divide all data number less than 5%, the clustering process is over
+		//6 output all data group by cluster
 	}
 
 }
