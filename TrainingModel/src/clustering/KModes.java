@@ -100,8 +100,9 @@ public class KModes {
 		
 		
 		//update central point
-		List<List<String>> kList = new ArrayList<List<String>>();
+		List<List<String>> kList = null;
 		for(int n=0;n<k;n++) {
+			kList = new ArrayList<List<String>>();
 			//each time find one cluster
 			for(int j=0; j<defectsize;j++ ) {
 				if(defectList.get(j).size() == recordSize+1 && defectList.get(j).get(recordSize).equals(n+"")) {
@@ -113,8 +114,9 @@ public class KModes {
 			List<String> newCentralPointList = new ArrayList<String>();
 			//TODO
 			for(int i=0; i< recordSize+1;i++) {  //size is equals records size + 1(type column) , from i=1,because of the defectID is different with each other
+				attributeMap = new HashMap<String,Integer>();
 				for(int m=0; m<kList.size();m++) {   //iterator the one type records
-					attributeMap = new HashMap<String,Integer>();
+					
 					String key = kList.get(m).get(i);
 					if(attributeMap.containsKey(key)) {
 						attributeMap.put(key,attributeMap.get(key)+1);
@@ -133,19 +135,34 @@ public class KModes {
 				newCentralPointList.add(i, attributeFre);
 				
 			}
+			System.out.println("new central point :"+ newCentralPointList.toString());
+			int matchCount = 0;
 			//compare the new central point with the last time central point
 			String clusterType = newCentralPointList.get(newCentralPointList.size()-1);
-			for(int t=0; t< kList.size()+1;t++) {
-					String tempType = kList.get(t).get(kList.get(0).size()-1);
+			for(int t=0; t< centralList.size()+1;t++) {
+				    System.out.println("the last central point :"+ centralList.get(t).toString());
+					String tempType = centralList.get(t).get(centralList.get(0).size()-1);
 					if(tempType.equals(clusterType)) {
+						matchCount = 0;
 						//compare the two records match rate, if the rate is higher ,don't update the central point, else update the central point
-						
+						for(int j=0;j<centralList.get(t).size();j++) { //the last central point
+							if(centralList.get(t).get(j).equals(newCentralPointList.get(j))) {
+								matchCount++;
+							}
+						}
+						if(matchCount > 2) {
+							System.out.println("new and last central point comapre :"+matchCount);
+							break;
+						}else{
+							kList = null;
+						}
 					}
 				
 				
 				
 			}
-			kList = null;  //next cluster, clean list
+			
+			  //next cluster, clean list
 		}
 		//output the result
 		for(Integer getkey:clusterMap.keySet()) {
