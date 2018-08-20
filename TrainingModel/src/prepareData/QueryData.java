@@ -14,14 +14,15 @@ public class QueryData {
 		Connection conn = cc.createConnection();
 		Statement stmt = null;
 		List<List<String>> defectList = new ArrayList<List<String>>();
-		List<String> recordList = new ArrayList<String>();
+		List<String> recordList = null;
 		try {
 			stmt = conn.createStatement();
 			
 			String sql = "SELECT * from defect_removestopwords";
 			ResultSet rs = stmt.executeQuery(sql);
-
+			int i = 0;
 			while(rs.next()) {
+				recordList = new ArrayList<String>();
 				recordList.add(rs.getString("DefectID"));
 				recordList.add(rs.getString("Component"));
 				recordList.add(rs.getString("Releases"));
@@ -38,8 +39,8 @@ public class QueryData {
 			//	recordList.add(rs.getDate("DateAcceptedorReturned"));
 				recordList.add(rs.getInt("Severty")+"");
 				
-				defectList.add(recordList);
-				
+				defectList.add(i, recordList);
+				i++;
 			}
 			rs.close();
 			stmt.close();

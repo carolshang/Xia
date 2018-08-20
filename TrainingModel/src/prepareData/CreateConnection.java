@@ -27,7 +27,9 @@ public class CreateConnection {
 		return conn;
 	}
 	
-/*	public static void main(String[] args) {
-	}*/
+	public static void main(String[] args) {
+		CreateConnection cc = new CreateConnection();
+		cc.createConnection();
+	}
 
 }
