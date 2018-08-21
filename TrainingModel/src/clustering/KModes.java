@@ -304,8 +304,8 @@ public class KModes {
 		
 	}
 	public static void main(String[] args) {
-		File output = new File("./output.txt");
-		File result = new File("./result.txt");
+		File output = new File("./output1.txt");
+		File result = new File("./result1.txt");
 		FileWriter fw = null;
 		FileWriter fw1 = null;
 		try {

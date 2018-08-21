@@ -20,7 +20,7 @@ public class test {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}*/
-        Map<String, Integer> map = new HashMap();
+       /* Map<String, Integer> map = new HashMap();
         map.put("1", 8);
         map.put("2", 12);
         map.put("3", 53);
@@ -32,7 +32,11 @@ public class test {
         Object[] obj = c.toArray();
         Arrays.sort(obj);
         System.out.println(obj[obj.length-1]);
-        System.out.println(obj);
+        System.out.println(obj);*/
+        
+        String a = "composer8204";
+        
+        System.out.println(a.charAt(8));
 
 	}
 
