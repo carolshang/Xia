@@ -308,6 +308,7 @@ public class KModes {
 		File result = new File("./result1.txt");
 		FileWriter fw = null;
 		FileWriter fw1 = null;
+		long startTime=System.currentTimeMillis();
 		try {
 			fw = new FileWriter(output);
 			BufferedWriter bw = new BufferedWriter(fw);
@@ -355,15 +356,20 @@ public class KModes {
 			}
 			isAllClustered = km.isAllDataIsCluster(recordSize, defectList, bw);
 			//if the central points is stable, some data are still in neither cluster, add them into one cluster
-			if(!isAllClustered) {
+			while(!isAllClustered) {
 				defectList = km.finalCluster(k,recordSize, defectList);
-				clusterMap = km.groupFinalCluster(k, recordSize, defectList, clusterMap);
+				isAllClustered = km.isAllDataIsCluster(recordSize, defectList, bw);
+				
 			}
+			clusterMap = km.groupFinalCluster(k, recordSize, defectList, clusterMap);
 			//ending, out put the result
 			km.outputResult(clusterMap, bw);
 			
 			bw.close();
-			System.out.println("out put into files");
+			System.out.println("First clustering results out put into files");
+			long endTime=System.currentTimeMillis();
+			float excTime=(float)(endTime-startTime)/1000;
+			System.out.println("BTT type clustering is finished.The process need "+excTime+"s");  //3.943s
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

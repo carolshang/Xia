@@ -13,9 +13,7 @@ public class TxtReader {
 		List<List<String>> record = new ArrayList<List<String>>();
 		try {
 			String encoding = "GBK"; // 字符编码(可解决中文乱码问题 )
-//			File file = new File("./simple.txt");
-			File file = new File("/Users/apple/Documents/simple.txt");
-			System.out.println(file);
+			File file = new File("D:/sj-workspace/Xia/TrainingModel/src/refer/aprior/simple.txt");
 			if (file.isFile() && file.exists()) {
 				InputStreamReader read = new InputStreamReader(
 						new FileInputStream(file), encoding);

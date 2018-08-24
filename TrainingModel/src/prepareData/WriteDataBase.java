@@ -45,6 +45,38 @@ public class WriteDataBase {
 			}
 		}
 	}
+	
+	public void addTypeField(List<List<String>> defectList) {
+		CreateConnection cc = new CreateConnection();
+		Connection conn = cc.createConnection();
+		PreparedStatement psql = null;
+		//ALTER TABLE defect_3 ADD Type VARCHAR(50);
+		try {
+			long startTime=System.currentTimeMillis();
+			for(int i=0; i < defectList.size();i++) {
+				psql = conn.prepareStatement("UPDATE defect_3 set Type = ? where DefectID = ?");
+				psql.setString(1, defectList.get(i).get(8));
+				psql.setString(2, defectList.get(i).get(0));
+				psql.executeUpdate();
+			}
+			psql.close();
+			conn.close();
+			long endTime=System.currentTimeMillis();
+			float excTime=(float)(endTime-startTime)/1000;
+			System.out.println("Update defect_3.Type is finished.The process need "+excTime+"s");  //34.928ss
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(conn != null) {
+					conn.close();
+				}
+				System.out.println("Update Type is successed.");
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 	public static void main(String[] args) {
 
 	}
