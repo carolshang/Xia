@@ -27,7 +27,7 @@ public class BTTMain {
 
 			//initial variables
 			//TODO
-			int k = 12; //cluster number
+			int k = 6; //cluster number
 			List<List<String>> defectList = new ArrayList<List<String>>(); // init data set
 			List<List<String>> centralList = new ArrayList<List<String>>(); //k central records
 			Map<Integer,List<List<String>>> clusterMap = new HashMap<Integer,List<List<String>>>();  //record all cluster by group
