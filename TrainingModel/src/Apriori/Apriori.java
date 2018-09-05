@@ -1,9 +1,12 @@
 package Apriori;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -11,6 +14,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.stream.Collectors;
+
 
 /**
  * Input : datalist , min_support
@@ -23,31 +28,121 @@ import java.util.TreeMap;
 public class Apriori {
 	
 	//set min support
-    final int MIN_SUPPORT = 2 ; //support
-    final double MIN_CONFIDENCE = 0.5; //conference
+    final int MIN_SUPPORT = 5 ; //support
+    final double MIN_CONFIDENCE = 0.6; //conference
 
 	public static void main(String[] args) {
 		Apriori apri = new Apriori();
 		//initial data
 		List<Set<String>> dataList = Apriori.initialData();
-
-		//findFrequentItem all Set
-		Map<Integer, List<Set<String>>> resMap = apri.findFrequentItemList(dataList, apri.MIN_SUPPORT);
-		
-		//output the frequentItem
-		for(int itemCount:resMap.keySet()) {
-			List<Set<String>> frequentItemList = resMap.get(itemCount);
-			System.out.println("Item-"+itemCount+"--frequent item list--------------");
-			for(int i=0; i<frequentItemList.size();i++) {
-				System.out.println(frequentItemList.get(i).toString());
+		File outfile = new File("./files/apriori/testResult.txt");
+		try {
+			FileWriter fw = new FileWriter(outfile);
+			BufferedWriter bw = new BufferedWriter(fw);
+			
+			//findFrequentItem all Set
+			Map<Integer, Map<Set<String>, Integer>> resMap = apri.findFrequentItemList(dataList, apri.MIN_SUPPORT);
+			
+			//output the frequentItem
+			for(int itemCount:resMap.keySet()) {
+				Map<Set<String>, Integer> tempMap = resMap.get(itemCount);
+			//	System.out.println("Item-"+itemCount+"--frequent item list--------------");
+				bw.write("Item-"+itemCount+"--frequent item list--------------" + "\r\n");
+				for(Set<String> itemSet:tempMap.keySet()) {
+					//System.out.println(itemSet.toString() + "---------" + tempMap.get(itemSet));
+					bw.write(itemSet.toString() + "---------" + tempMap.get(itemSet) + "\r\n");
+				}
 			}
+			//get association rules
+			Map<String,Number> associationRules = apri.getAssociationRules(resMap,bw); 
+			Map<String,Number> usefulAR = new HashMap<String,Number>();
+			for(String rules:associationRules.keySet()) {
+				double confidence = (double)associationRules.get(rules);
+				if(confidence > apri.MIN_CONFIDENCE) {
+					usefulAR.put(rules,confidence);
+				}
+			}
+			//output the rules match min_confidience
+		//	System.out.println("The useful association rules ------------------------------");
+			bw.write("The useful association rules ------------------------------" + "\r\n");
+			for(String rules:usefulAR.keySet()) {
+			//	System.out.println(rules+" --- "+usefulAR.get(rules));
+				bw.write(rules+" --- "+usefulAR.get(rules) + "\r\n");
+			}
+			
+			bw.flush();
+			bw.close();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-		
-		//Confidence calculate
+		System.exit(0);
 	}
+
+	public Map<String,Number> getAssociationRules(Map<Integer, Map<Set<String>, Integer>> resMap, BufferedWriter bw) {
+	
+		Map<String,Number> associationRules = new HashMap<String,Number>(); 
+		try {
+			bw.write("Association Rules is following --------------" + "\r\n");
+//			System.out.println("Association Rules is following --------------");
+			for(int itemcount:resMap.keySet()) {
+				Map<Set<String>, Integer> tempMap = resMap.get(itemcount);
+				for(Set<String> itemSet:tempMap.keySet()) {
+					if(itemSet.size() > 1) {
+						//get the support of one set ,for example the support of {1,2} is 4
+						double value1 = tempMap.get(itemSet);
+						//get the subset of itemSet,  {1,2} = {1},{2}
+						Map<Set<String>,Integer> subSetMap = getAllSubSets(itemSet,resMap);
+						if(!subSetMap.isEmpty()) {
+							for(Set<String> subItemSet:subSetMap.keySet()) {
+								//get the support of each sub set of {1}=5, {2}=6
+								int value2 = subSetMap.get(subItemSet);
+								double confidence = new BigDecimal(value1/value2).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+								Set<String> remainSet = removeSubSet(itemSet,subItemSet);
+							//	System.out.println(subItemSet+" => "+remainSet+" ------ "+confidence);
+								bw.write(subItemSet+" => "+remainSet+" ------ "+confidence + "\r\n");
+								associationRules.put(subItemSet+" => "+remainSet, confidence);
+							}
+						}
+					}
+				}
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return associationRules;
+	}
+	
+	public Set<String> removeSubSet(Set<String> itemSet,Set<String> subItemSet) {
+		Set<String> remainSet = itemSet.stream().map(String::new).collect(Collectors.toSet());
+		for(String subItem:subItemSet) {
+			remainSet.remove(subItem);
+		}
+		return remainSet;
+	}
+	public Map<Set<String>,Integer> getAllSubSets(Set<String> itemSet, Map<Integer, Map<Set<String>, Integer>> resMap) {
+		//the subset excepts itself
+		Map<Set<String>,Integer> subSetMap = new HashMap<Set<String>,Integer>();
+		//get sub sets
+		for(String item:itemSet) {
+			Set<String> subSet = itemSet.stream().map(String::new).collect(Collectors.toSet());
+			subSet.remove(item);
+			int subSetCount = 0;
+			//get the count of the subSets in the final result map
+			Map<Set<String>, Integer> eachResMap = resMap.get(subSet.size());
+			for(Set<String> itemsubSet:eachResMap.keySet()) {
+				if(itemsubSet.equals(subSet)) {
+					subSetCount = eachResMap.get(itemsubSet);
+					break;
+				}
+			}
+			subSetMap.put(subSet, subSetCount);
+		}
+		return subSetMap;
+	}
+	
 	public static List<Set<String>> initialData(){
 		List<Set<String>> dataList = new ArrayList<Set<String>>();
-		String a[][] = {
+		/*String a[][] = {
 				{"I1","I2","I5"},
 				{"I2","I4"},
 				{"I2","I3"},
@@ -63,21 +158,42 @@ public class Apriori {
 				tempList.add(a[i][j]);
 			}
 			dataList.add(i,tempList);
+		}*/
+		/*QueryData qd = new QueryData();
+		dataList = qd.queryDataForApriori();*/
+		File file = new File("./TestData.txt");
+		if(file.exists()) {
+			try {
+				BufferedReader br = new BufferedReader(new FileReader(file));
+				String temp = null;
+				//int t = 0;
+				while ((temp = br.readLine()) != null) {
+					String a[] = temp.split(",");
+					Set<String> tempSet = new HashSet<String>();
+					for(int i=0;i<a.length;i++) {
+						tempSet.add(a[i].trim());
+					}
+					dataList.add(tempSet);
+					//t++;
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		return dataList;
 	}
 	
-	
-	public Map<Integer, List<Set<String>>> findFrequentItemList(List<Set<String>> dataList,int min_support) {
+	public Map<Integer, Map<Set<String>, Integer>> findFrequentItemList(List<Set<String>> dataList,int min_support) {
 		
 		//save all frequent list of each count item
-		Map<Integer, List<Set<String>>> resMap = new TreeMap<Integer, List<Set<String>>>();
-		
-		
+		Map<Integer, Map<Set<String>, Integer>> resMap = new TreeMap<Integer, Map<Set<String>, Integer>>();
 		//get first one-item candidate set 
-		List<Set<String>> oneItemFrenquentList = findOneItemFrequentList(dataList,min_support);
-		resMap.put(1, oneItemFrenquentList);
-		
+		Map<Set<String>, Integer> oneItemFrenquentMap = findOneItemFrequentList(dataList,min_support);
+		resMap.put(1, oneItemFrenquentMap);
+		List<Set<String>> oneItemFrenquentList =  new ArrayList<Set<String>>();
+		for(Set<String> onefset:oneItemFrenquentMap.keySet()) {
+			oneItemFrenquentList.add(onefset);
+		}
 		int preFrequentListSize = 1;
 		List<Set<String>> preFrequentList = oneItemFrenquentList;
 		
@@ -88,9 +204,13 @@ public class Apriori {
 			List<Set<String>>  currentCandidateList = aprioriGenerateCandidate(preFrequentList);
 			//the frequent list in current loop
 			List<Set<String>> currentFrequentList = new ArrayList<Set<String>>();
-			currentFrequentList = getCurrFrequentList(dataList,currentCandidateList,min_support);
+			Map<Set<String>, Integer> curFrequentMap = new HashMap<Set<String>, Integer>();
+			curFrequentMap = getCurrFrequentList(dataList,currentCandidateList,min_support);
+			for(Set<String> curSet:curFrequentMap.keySet()) {
+				currentFrequentList.add(curSet);
+			}
 			if(!currentFrequentList.isEmpty()) {
-				resMap.put(curFrequentListSize, currentFrequentList);
+				resMap.put(curFrequentListSize, curFrequentMap);
 			}
 			preFrequentListSize = curFrequentListSize;
 			preFrequentList = currentFrequentList;
@@ -100,23 +220,21 @@ public class Apriori {
 		
         
 	}
-	public List<Set<String>> getCurrFrequentList(List<Set<String>> dataList,List<Set<String>>  currentCandidateList,int min_support) {
-		List<Set<String>> currentFrequentList = new ArrayList<Set<String>>();
+	public Map<Set<String>,Integer> getCurrFrequentList(List<Set<String>> dataList,List<Set<String>>  currentCandidateList,int min_support) {
+		Map<Set<String>,Integer> curFrequentMap = new HashMap<Set<String>,Integer>();
 		
 		//count the frequent of the candidate list , get candidate map in current loop
 		Map<Set<String>,Integer> curCandidateMap = new HashMap<Set<String>,Integer>();
 		curCandidateMap = getCandidateMap(dataList,currentCandidateList);
 		
 		//remove item which count less than min_support
-		int a = 0;
 		for(Set<String> tempList : curCandidateMap.keySet()) {
-			 if(curCandidateMap.get(tempList) > min_support) {
-				 currentFrequentList.add(a, tempList);
-				 a++;
+			 if(curCandidateMap.get(tempList) >= min_support) {
+				 curFrequentMap.put(tempList, curCandidateMap.get(tempList));
 			 }
 		}
 				
-		return currentFrequentList;
+		return curFrequentMap;
 	}
 	public Map<Set<String>,Integer> getCandidateMap(List<Set<String>> dataList, List<Set<String>> currentCandidateList) {
 		Map<Set<String>,Integer> curCandidateMap = new HashMap<Set<String>,Integer>();
@@ -150,7 +268,6 @@ public class Apriori {
 	public List<Set<String>> aprioriGenerateCandidate(List<Set<String>> preFrequentList) {
 		List<Set<String>>  currentFrequentList  = new ArrayList<Set<String>>();
 		//get next candidate
-     //   boolean flag = true;
         for(int i=0; i<preFrequentList.size();i++) {
         	 Set<String> temList = new HashSet<String>();  //save the new item list, for example pre is 2-Item, save 3-Item
         	 Set<String> list1 = preFrequentList.get(i);
@@ -161,8 +278,7 @@ public class Apriori {
        				 //join list1 and list2
        				 int count = 0;
        				 try {
-       					 //TODO
-						temList = (Set<String>)deepCopy((List<String>)list1);
+						temList = list1.stream().map(String::new).collect(Collectors.toSet());
 						String tempStr = null;
 	       				 for(String list2Str:list2) {
 	       					 if(!list1.contains(list2Str)) {
@@ -197,7 +313,7 @@ public class Apriori {
         return currentFrequentList;
 	}
 
-	public List<Set<String>> findOneItemFrequentList(List<Set<String>> dataList,int min_support) {
+	public Map<Set<String>,Integer> findOneItemFrequentList(List<Set<String>> dataList,int min_support) {
 		 Map<Set<String>,Integer> cItemMap = new HashMap<Set<String>,Integer>();
          for(int i=0; i < dataList.size();i++) {
         	 for(String tempstr:dataList.get(i)) {
@@ -212,28 +328,17 @@ public class Apriori {
         		 }
         	 }
          }
-         //output one-item set
-         //TODO
-         /*for(List<String> tlist:cItemMap.keySet()) {
-        	 System.out.println(tlist.toString() + " -- "+cItemMap.get(tlist));
-         }*/
+         Map<Set<String>,Integer> fItemMap = new HashMap<Set<String>,Integer>();
          System.out.println("One Item Frequent List--------");
          //get frequent one-item set
-         List<Set<String>> fItemList = new ArrayList<Set<String>>();
+      //   List<Set<String>> fItemList = new ArrayList<Set<String>>();
          for(Set<String> key:cItemMap.keySet()) {
         	 System.out.println(key+" - "+cItemMap.get(key));
-        	 if(cItemMap.get(key) > min_support) {
-        		 fItemList.add(key);
+        	 if(cItemMap.get(key) >= min_support) {
+        		 fItemMap.put(key, cItemMap.get(key));
              }
          }
-         
-         //output one-item set
-         //TODO
-         /*System.out.println("Frequent item set -----------------------");
-         for(List<String> flist:fItemList) {
-        	 System.out.println(flist.toString());
-         }*/
-         return fItemList;
+         return fItemMap;
 	}
 	
 	public List<Set<String>> getSubSet(Set<String> temList){
@@ -244,8 +349,7 @@ public class Apriori {
 			for(String temStr:temList) {
 				Set<String> llist;
 				try {
-					//TODO
-					llist = (Set<String>)deepCopy((List<String>)temList);
+					llist = temList.stream().map(String::new).collect(Collectors.toSet());
 					llist.remove(temStr);
 					subList.add(a,llist);
 					a++;
@@ -256,17 +360,28 @@ public class Apriori {
 		}
 		return subList;
 	}
-	public List<String> deepCopy(List<String> src) throws Exception {  
-	    ByteArrayOutputStream byteOut = new ByteArrayOutputStream();  
-	    ObjectOutputStream out = new ObjectOutputStream(byteOut);  
-	    out.writeObject(src);  
+	
+/*	@Override   
+	protected String clone() {   
+		String clone = null;   
+	    try{   
+	        clone = (String) super.clone();   
+	          
+	    }catch(CloneNotSupportedException e){   
+	        throw new RuntimeException(e);  // won't happen   
+	    }   
+	      
+	    return clone;   
+	} 
+	public List<String> deepCopySet(List<String> src) throws Exception {  
 
-	    ByteArrayInputStream byteIn = new ByteArrayInputStream(byteOut.toByteArray());  
-	    ObjectInputStream in = new ObjectInputStream(byteIn);  
-	    @SuppressWarnings("unchecked")  
-	    List<String> dest = (List<String>) in.readObject();  
-	    return dest;  
-	}  
+	    Collection<String> copy = new HashSet<String>(src.size());   
+	    Iterator<String> iterator = src.iterator();   
+	    while(iterator.hasNext()){   
+	        copy.add(iterator.next().clone());   
+	    }  
+
+	}  */
 
 	public boolean joinOrNot(Set<String> list1,Set<String> list2) {
 		int count=0;

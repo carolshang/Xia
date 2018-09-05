@@ -1,0 +1,166 @@
+Item-1--frequent item list--------------
+[BTTChannels]---------8
+[canceled]---------10
+[3]---------19
+[Xiang Mei]---------9
+[composer7]---------14
+[closed]---------10
+[BTTToolsZeroCodeEditor]---------5
+[Runtime-server]---------9
+[Tooling]---------9
+Item-2--frequent item list--------------
+[BTTToolsZeroCodeEditor, Tooling]---------5
+[Xiang Mei, closed]---------5
+[3, Xiang Mei]---------8
+[composer7, closed]---------7
+[canceled, 3]---------10
+[BTTChannels, closed]---------5
+[BTTChannels, 3]---------7
+[composer7, Runtime-server]---------7
+[closed, Runtime-server]---------6
+[canceled, composer7]---------7
+[3, closed]---------9
+[Xiang Mei, composer7]---------6
+[3, BTTToolsZeroCodeEditor]---------5
+[canceled, Tooling]---------5
+[BTTChannels, Runtime-server]---------7
+[composer7, Tooling]---------5
+[Xiang Mei, Runtime-server]---------6
+[3, Tooling]---------9
+[BTTChannels, composer7]---------5
+[3, composer7]---------13
+[BTTChannels, Xiang Mei]---------7
+[3, Runtime-server]---------8
+Item-3--frequent item list--------------
+[3, Xiang Mei, Runtime-server]---------5
+[3, composer7, Tooling]---------5
+[BTTChannels, Xiang Mei, Runtime-server]---------6
+[3, composer7, Runtime-server]---------6
+[BTTChannels, 3, Runtime-server]---------6
+[canceled, 3, Tooling]---------5
+[BTTChannels, composer7, Runtime-server]---------5
+[3, closed, Runtime-server]---------5
+[3, BTTToolsZeroCodeEditor, Tooling]---------5
+[BTTChannels, Xiang Mei, closed]---------5
+Association Rules is following --------------
+[BTTToolsZeroCodeEditor] => [Tooling] ------ 1.0
+[Tooling] => [BTTToolsZeroCodeEditor] ------ 0.56
+[Xiang Mei] => [closed] ------ 0.56
+[closed] => [Xiang Mei] ------ 0.5
+[3] => [Xiang Mei] ------ 0.42
+[Xiang Mei] => [3] ------ 0.89
+[composer7] => [closed] ------ 0.5
+[closed] => [composer7] ------ 0.7
+[canceled] => [3] ------ 1.0
+[3] => [canceled] ------ 0.53
+[BTTChannels] => [closed] ------ 0.63
+[closed] => [BTTChannels] ------ 0.5
+[BTTChannels] => [3] ------ 0.88
+[3] => [BTTChannels] ------ 0.37
+[composer7] => [Runtime-server] ------ 0.5
+[Runtime-server] => [composer7] ------ 0.78
+[closed] => [Runtime-server] ------ 0.6
+[Runtime-server] => [closed] ------ 0.67
+[canceled] => [composer7] ------ 0.7
+[composer7] => [canceled] ------ 0.5
+[3] => [closed] ------ 0.47
+[closed] => [3] ------ 0.9
+[Xiang Mei] => [composer7] ------ 0.67
+[composer7] => [Xiang Mei] ------ 0.43
+[3] => [BTTToolsZeroCodeEditor] ------ 0.26
+[BTTToolsZeroCodeEditor] => [3] ------ 1.0
+[canceled] => [Tooling] ------ 0.5
+[Tooling] => [canceled] ------ 0.56
+[BTTChannels] => [Runtime-server] ------ 0.88
+[Runtime-server] => [BTTChannels] ------ 0.78
+[composer7] => [Tooling] ------ 0.36
+[Tooling] => [composer7] ------ 0.56
+[Xiang Mei] => [Runtime-server] ------ 0.67
+[Runtime-server] => [Xiang Mei] ------ 0.67
+[3] => [Tooling] ------ 0.47
+[Tooling] => [3] ------ 1.0
+[BTTChannels] => [composer7] ------ 0.63
+[composer7] => [BTTChannels] ------ 0.36
+[3] => [composer7] ------ 0.68
+[composer7] => [3] ------ 0.93
+[BTTChannels] => [Xiang Mei] ------ 0.88
+[Xiang Mei] => [BTTChannels] ------ 0.78
+[3] => [Runtime-server] ------ 0.42
+[Runtime-server] => [3] ------ 0.89
+[3, Xiang Mei] => [Runtime-server] ------ 0.63
+[Xiang Mei, Runtime-server] => [3] ------ 0.83
+[3, Runtime-server] => [Xiang Mei] ------ 0.63
+[composer7, Tooling] => [3] ------ 1.0
+[3, Tooling] => [composer7] ------ 0.56
+[3, composer7] => [Tooling] ------ 0.38
+[BTTChannels, Runtime-server] => [Xiang Mei] ------ 0.86
+[Xiang Mei, Runtime-server] => [BTTChannels] ------ 1.0
+[BTTChannels, Xiang Mei] => [Runtime-server] ------ 0.86
+[composer7, Runtime-server] => [3] ------ 0.86
+[3, composer7] => [Runtime-server] ------ 0.46
+[3, Runtime-server] => [composer7] ------ 0.75
+[BTTChannels, Runtime-server] => [3] ------ 0.86
+[BTTChannels, 3] => [Runtime-server] ------ 0.86
+[3, Runtime-server] => [BTTChannels] ------ 0.75
+[canceled, 3] => [Tooling] ------ 0.5
+[3, Tooling] => [canceled] ------ 0.56
+[canceled, Tooling] => [3] ------ 1.0
+[BTTChannels, Runtime-server] => [composer7] ------ 0.71
+[composer7, Runtime-server] => [BTTChannels] ------ 0.71
+[BTTChannels, composer7] => [Runtime-server] ------ 1.0
+[closed, Runtime-server] => [3] ------ 0.83
+[3, closed] => [Runtime-server] ------ 0.56
+[3, Runtime-server] => [closed] ------ 0.63
+[BTTToolsZeroCodeEditor, Tooling] => [3] ------ 1.0
+[3, Tooling] => [BTTToolsZeroCodeEditor] ------ 0.56
+[3, BTTToolsZeroCodeEditor] => [Tooling] ------ 1.0
+[Xiang Mei, closed] => [BTTChannels] ------ 1.0
+[BTTChannels, closed] => [Xiang Mei] ------ 1.0
+[BTTChannels, Xiang Mei] => [closed] ------ 0.71
+The useful association rules ------------------------------
+[composer7] => [3] --- 0.93
+[Runtime-server] => [composer7] --- 0.78
+[3, Runtime-server] => [Xiang Mei] --- 0.63
+[3, Runtime-server] => [BTTChannels] --- 0.75
+[canceled, Tooling] => [3] --- 1.0
+[Xiang Mei] => [BTTChannels] --- 0.78
+[Runtime-server] => [3] --- 0.89
+[BTTChannels, Runtime-server] => [Xiang Mei] --- 0.86
+[BTTToolsZeroCodeEditor, Tooling] => [3] --- 1.0
+[BTTChannels] => [Runtime-server] --- 0.88
+[3] => [composer7] --- 0.68
+[BTTChannels, Xiang Mei] => [closed] --- 0.71
+[BTTChannels, Xiang Mei] => [Runtime-server] --- 0.86
+[Xiang Mei, Runtime-server] => [BTTChannels] --- 1.0
+[3, Runtime-server] => [closed] --- 0.63
+[Xiang Mei] => [Runtime-server] --- 0.67
+[BTTToolsZeroCodeEditor] => [Tooling] --- 1.0
+[Runtime-server] => [BTTChannels] --- 0.78
+[Runtime-server] => [closed] --- 0.67
+[BTTChannels] => [composer7] --- 0.63
+[BTTToolsZeroCodeEditor] => [3] --- 1.0
+[Xiang Mei] => [3] --- 0.89
+[3, Xiang Mei] => [Runtime-server] --- 0.63
+[BTTChannels] => [3] --- 0.88
+[BTTChannels, Runtime-server] => [composer7] --- 0.71
+[BTTChannels, composer7] => [Runtime-server] --- 1.0
+[Xiang Mei, closed] => [BTTChannels] --- 1.0
+[BTTChannels, 3] => [Runtime-server] --- 0.86
+[BTTChannels] => [closed] --- 0.63
+[closed, Runtime-server] => [3] --- 0.83
+[3, Runtime-server] => [composer7] --- 0.75
+[Runtime-server] => [Xiang Mei] --- 0.67
+[canceled] => [3] --- 1.0
+[composer7, Runtime-server] => [BTTChannels] --- 0.71
+[3, BTTToolsZeroCodeEditor] => [Tooling] --- 1.0
+[Xiang Mei, Runtime-server] => [3] --- 0.83
+[composer7, Tooling] => [3] --- 1.0
+[BTTChannels, Runtime-server] => [3] --- 0.86
+[canceled] => [composer7] --- 0.7
+[closed] => [composer7] --- 0.7
+[composer7, Runtime-server] => [3] --- 0.86
+[Tooling] => [3] --- 1.0
+[BTTChannels, closed] => [Xiang Mei] --- 1.0
+[closed] => [3] --- 0.9
+[Xiang Mei] => [composer7] --- 0.67
+[BTTChannels] => [Xiang Mei] --- 0.88
