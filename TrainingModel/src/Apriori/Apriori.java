@@ -1,9 +1,7 @@
 package Apriori;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -15,6 +13,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.stream.Collectors;
+
+import prepareData.QueryData;
 
 
 /**
@@ -28,8 +28,8 @@ import java.util.stream.Collectors;
 public class Apriori {
 	
 	//set min support
-    final int MIN_SUPPORT = 5 ; //support
-    final double MIN_CONFIDENCE = 0.6; //conference
+    final int MIN_SUPPORT = 80 ; //support
+    final double MIN_CONFIDENCE = 0.7; //conference
 
 	public static void main(String[] args) {
 		Apriori apri = new Apriori();
@@ -47,7 +47,7 @@ public class Apriori {
 			for(int itemCount:resMap.keySet()) {
 				Map<Set<String>, Integer> tempMap = resMap.get(itemCount);
 			//	System.out.println("Item-"+itemCount+"--frequent item list--------------");
-				bw.write("Item-"+itemCount+"--frequent item list--------------" + "\r\n");
+				bw.write("Item-"+itemCount+"--frequent item list--------------------------------------------------------------" + "\r\n");
 				for(Set<String> itemSet:tempMap.keySet()) {
 					//System.out.println(itemSet.toString() + "---------" + tempMap.get(itemSet));
 					bw.write(itemSet.toString() + "---------" + tempMap.get(itemSet) + "\r\n");
@@ -64,7 +64,7 @@ public class Apriori {
 			}
 			//output the rules match min_confidience
 		//	System.out.println("The useful association rules ------------------------------");
-			bw.write("The useful association rules ------------------------------" + "\r\n");
+			bw.write("\r\n"+"The useful association rules --------------------------------------------------------------------------------------" + "\r\n");
 			for(String rules:usefulAR.keySet()) {
 			//	System.out.println(rules+" --- "+usefulAR.get(rules));
 				bw.write(rules+" --- "+usefulAR.get(rules) + "\r\n");
@@ -75,6 +75,7 @@ public class Apriori {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		System.out.println("All process is finished...............................");
 		System.exit(0);
 	}
 
@@ -82,7 +83,7 @@ public class Apriori {
 	
 		Map<String,Number> associationRules = new HashMap<String,Number>(); 
 		try {
-			bw.write("Association Rules is following --------------" + "\r\n");
+			bw.write("\r\n"+"Association Rules is following ------------------------------------------------------------------------------------------" + "\r\n");
 //			System.out.println("Association Rules is following --------------");
 			for(int itemcount:resMap.keySet()) {
 				Map<Set<String>, Integer> tempMap = resMap.get(itemcount);
@@ -159,9 +160,8 @@ public class Apriori {
 			}
 			dataList.add(i,tempList);
 		}*/
-		/*QueryData qd = new QueryData();
-		dataList = qd.queryDataForApriori();*/
-		File file = new File("./TestData.txt");
+		
+		/*File file = new File("./TestData.txt");
 		if(file.exists()) {
 			try {
 				BufferedReader br = new BufferedReader(new FileReader(file));
@@ -179,7 +179,10 @@ public class Apriori {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}
+		}*/
+		
+		QueryData qd = new QueryData();
+		dataList = qd.queryDataForApriori();
 		return dataList;
 	}
 	

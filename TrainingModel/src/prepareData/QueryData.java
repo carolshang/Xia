@@ -82,18 +82,12 @@ public class QueryData {
 			//	recordList.add(rs.getString("DefectID"));
 				recordList.add(rs.getString("Component"));
 				recordList.add(rs.getString("Releases"));
-			//	recordList.add(rs.getString("OriginatorID"));
-			//	recordList.add(rs.getString("OwnerID"));
 			//	recordList.add(rs.getString("State"));
-			//	recordList.add(rs.getDate("DateCreated"));
 			//	recordList.add(rs.getString("Abstract"));
-			//	recordList.add(rs.getDate("DateAssigned"));
-			//	recordList.add(rs.getDate("DateClosedorCanceled"));
-			//	recordList.add(rs.getString("Answer"));
 			//	recordList.add(rs.getString("OriginatorName"));
 			//	recordList.add(rs.getString("OwnerName"));
-			//	recordList.add(rs.getDate("DateAcceptedorReturned"));
-			//	recordList.add(rs.getInt("Severty")+"");
+				recordList.add(rs.getInt("Severty")+"");
+			//	recordList.add(rs.getString("Type"));
 				defectList.add(i, recordList);
 				i++;
 			}
