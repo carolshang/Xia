@@ -80,12 +80,12 @@ public class QueryData {
 			while(rs.next()) {
 				recordList = new HashSet<String>();
 			//	recordList.add(rs.getString("DefectID"));
-				recordList.add(rs.getString("Component"));
+			//	recordList.add(rs.getString("Component"));
 				recordList.add(rs.getString("Releases"));
 			//	recordList.add(rs.getString("State"));
 			//	recordList.add(rs.getString("Abstract"));
 			//	recordList.add(rs.getString("OriginatorName"));
-			//	recordList.add(rs.getString("OwnerName"));
+				recordList.add(rs.getString("OwnerName"));
 				recordList.add(rs.getInt("Severty")+"");
 			//	recordList.add(rs.getString("Type"));
 				defectList.add(i, recordList);

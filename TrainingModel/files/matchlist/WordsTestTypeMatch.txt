@@ -1,49 +1,49 @@
 FunctionTest:X003,X028,BN009,G016-UC9,tooltip,ContextMenu,FVT,Tool,Tools,IBK4-12,DataGrid,F013,Tools,mapping,Future,I7-R3,DataField,X038,G019,G016,G003,G021,Form,
-	TabbedPane,B001,G028,properties,multi-selection,dbclick,remoteRequestHandler,X037,clientstate,mutichannel,G026,hiddenwidget,css,invalid,expression,exception,
-	generated,UI,widget,ECA,panel,context,subflow,BTT61FVT,editor,FVTI2,FVTI3,FVTI1,FVTI4,property,style,tooling,widgets,condition,height,attribute,container,width,
+	TabbedPane,B001,G028,properties,multi-selection,dbclick,remoteRequestHandler,X037,clientstate,mutichannel,G026,hiddenwidget,css,invalid,
+	generated,widget,ECA,panel,context,subflow,BTT61FVT,editor,FVTI2,FVTI3,FVTI1,FVTI4,property,style,tooling,widgets,condition,height,attribute,container,width,
 	image,transaction,NLS,Operation,component,validate,validation,group,tree,popup,
 ***************************************	
-	flow,css,exception,generated,UI,button,window,widget,ECA,panel,form,context,js,op,subflow,BTT61FVT:,runtime,dataName,FVTI2:,FVTI3:,FVTI1:,FVTI4:,property,tooling,
-	Action,widgets,condition,dojo,tabbedpane,bind,height,mapping,attribute,nls,width,image,transaction,NLS,link,Operation,validate,validation,operation,generation,
-	table,tab,Exception,checkbox,format,properties,layout,alignment,Table,BTT52FVT:,xui,action,XUI,BTT61FVT,Context,refData,BTT51Tool:,tool,tooltip,date,
-	dataname,processor,label,BTT51FVT,pagination,thrown,throws,generate,HTML,
+	
+	condition,dojo,tabbedpane,bind,height,mapping,attribute,nls,width,image,transaction,NLS,link,Operation,validate,validation,operation,generation,
+	table,tab,checkbox,format,properties,layout,alignment,Table,BTT52FVT:,xui,action,XUI,BTT61FVT,refData,BTT51Tool:,tool,tooltip,date,
+	processor,label,BTT51FVT,pagination,thrown,throws,generate,HTML,
 	
 	
+	css,CSS,expression,generated,UI,widget,widgets,ECA,context,Context,BTT61FVT:,FVTI2:,FVTI3:,FVTI1:,button,js,op,dataName,dataname,FVTI4:,tooling,Action,
 
-BrowserTest:IE,Firefox,firefox,chrome,Chrome,Safari,safari,Html,html,ajax,IE8,dojo,
+BrowserTest:Firefox,firefox,chrome,Chrome,Safari,safari,Html,html,ajax,IE8,dojo,
 
-	IE,IE8,jsp,JSP,web,
+	IE8,jsp,JSP,web,
+	
+	IE,
 
-SystemTest:SVT,REG:,Reg:,cacheLow,CCB,[REG],[reg],[Reg],[Reg,[REG,[reg,[SVT],ICBC,REG:,reg:,Sample,WorkShop,HTTP,Webproject,submit,window,dataName,runtime,Format,
+SystemTest:SVT,REG:,Reg:,cacheLow,CCB,[REG],[reg],[Reg],[Reg,[REG,[reg,[SVT],ICBC,REG:,reg:,Sample,WorkShop,HTTP,Webproject,submit,dataName,runtime,Format,
 	jsp,launch,BTT51SVT,8105,generation,
 ***************************************		
-	SVT:,SVT,BP,window,widget,ECA,EJB,panel,form,context,js,op,subflow,runtime,dataName,property,Format,jar,tooling,launch,Action,BTT51SVT:,widgets,condition,dojo,
+	SVT,EJB,context,Format,jar,tooling,launch,Action,BTT51SVT:,widgets,condition,dojo,
 	tabbedpane,bind,height,mapping,attribute,nls,plugin,width,ICBC:,image,transaction,NLS,link,Operation,[reg],ajax,validate,ICBC,validation,operation,generation,
-	sample,table,tab,Exception,checkbox,SVT,format,properties,layout,was,dialog,WAS,Table,channel,xui,action,XUI,Context,refData,client,server,tooltip,tool,date,
-	dataname,processor,Sample,group,tree,transition,session,popup,label,pagination,timeout,thrown,throws,generate,HTML,
+	sample,table,tab,checkbox,SVT,format,properties,layout,was,dialog,WAS,Table,channel,xui,action,XUI,Context,refData,client,server,tooltip,tool,date,
+	processor,Sample,group,tree,transition,session,popup,label,pagination,timeout,thrown,throws,generate,HTML,
 	
+	
+	flow,BTT,SVT:,BP,subflow,runtime,property,
 
 PerformanceTest:[per,[P],[perf],[Per,[P-Map],INS,PERF:,Performance,alignment,
 ***************************************	
 
-	performance,Exception,
+	performance,
 	
 AutomationTest:[sandbox],[TestSuit],[Test Suit],Aut,auto,Automation,BTTAUTO,BTTAutomation
 ***************************************	
-		automation,Exception,auto,
+		auto,
+		
+		
+		automation
 
 MobileTest:mobile,Mobile,
 
 UnitTest:code,DEV,E2E,Dev:,Code,compile,Compile,synchronize,Synchronization,
 ***************************************	
-	BTT611DEV:,java,code,invoker,compile,classpath,DEV:,BTT61DEV:,
+	java,code,invoker,compile,classpath,DEV:,BTT61DEV:,
 
-
-Tooling:
-	generated,generate,generating,generation,button,widget,widgets,eca,panel,form,op,operation,property,tooling,condition,tabbedpane,attribute,plugin,image,link,validate,validation,tab,checkbox,layout,alignment,align,xui,action,tool,tooltip,group,tree,editor,label,template,tabedpane,tabbepane,mutil-select,globalfunctions,width,height,color,autosize,kcoll,dataname,DEV,migration,mapper,browser,scroll,formatter,wsdl
-Runtime-front:
-	eca,css,ui,window,js,runtime,property,jsp,dojo,attribute,nls,width,height,image,link,ajax,validate,validation,table,tab,checkbox,layout,alignment,web,dialog,xui,action,client,tooltip,date,group,tree,popup,label,pagination,html,ContentPane,richtext,combo,textarea,globalfunctions,visible,keyboard,firefox,chrome,safari,ie,ie8,multi-header,error,binded,kcoll,dataname,cache,submitted,browser,scroll
-Runtime-server:
-	op,operation,flow,subflow,svt,exception,exceptions,ejb,context,subflow,runtime,jar,launch,action,condition,bind,binding,mapping,java,transaction,code,link,validate,validation,invoker,format,was,table,channel,refdata,compile,server,date,dataname,processor,transition,session,trace,pagination,timeout,thrown,throws,error,globalfunctions,kcoll,cache,service,services,settings,mapper,Formatter,wsdl,icoll,nullpointerexception	
-Configuration:
-	build,meta-inf,xml,definitions,build.xml,btt.xml
+	BTT611DEV:,
